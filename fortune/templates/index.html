@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: 'sans-serif';
-            font-size: 26pt;
+            font-size: 14pt;
             line-height: 1.2em;
         }
         #content {
@@ -15,7 +15,8 @@
             margin: 1em auto;
         }
         .permalink {
-            font-size: .5em;
+            //font-size: .5em;
+            font-size: 14pt;
             color: #ddd;
             line-height: 1em;
         }
@@ -30,7 +31,7 @@
 </head>
 <body>
     <div id="content">
-        <p>{{ message }}</p>
+        <pre>{{ message }}</pre>
         <p class="permalink">
             [<a href="/{{ permalink }}">permalink</a>]
         </p>
