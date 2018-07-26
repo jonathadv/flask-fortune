@@ -16,15 +16,16 @@ def root():
     return render_template('index.html', message=message, permalink=permalink)
 
 
-@app.route("/<string:id>")
+@app.route("/<int:id>")
 def users(id):
-    message = FORTUNES[int(id)]
+    message = FORTUNES[id]
     return render_template('index.html', message=message, permalink=id)
 
 
 @app.route("/about")
 def about():
-    return "Hello! This is Fortune! \o/"
+    message = 'Hello! This is Fortune! \o/'
+    return render_template('index.html', message=message, permalink='about')
 
 
 if __name__ == '__main__':
