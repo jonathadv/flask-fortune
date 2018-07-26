@@ -1,24 +1,31 @@
 import random
 from data import FORTUNES
 
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 
-
-MAX_RAND_INT = len(FORTUNES)-1
+MAX_RAND_INT = len(FORTUNES) - 1
 
 
 @app.route("/")
 def root():
-    return FORTUNES[random.randint(0, MAX_RAND_INT)]
+    index = random.randint(0, MAX_RAND_INT)
+    message = FORTUNES[index]
+    permalink = str(index)
+    return render_template('index.html', message=message, permalink=permalink)
 
 
 @app.route("/<string:id>")
 def users(id):
-    return FORTUNES[id]
+    message = FORTUNES[int(id)]
+    return render_template('index.html', message=message, permalink=id)
 
 
 @app.route("/about")
 def about():
     return "Hello! This is Fortune! \o/"
 
+
+if __name__ == '__main__':
+    app.run()
