@@ -11,7 +11,6 @@ def _to_text(obj):
 
 
 def _to_html(obj):
-    print('########## called')
     return render_template('index.html', **obj)
 
 
