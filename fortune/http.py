@@ -29,3 +29,4 @@ def users(id_, rtype):
 def about(rtype):
     message = 'Hello! This is Fortune! \o/'
     return create_response(rtype=rtype, message=message, permalink='about')
+
