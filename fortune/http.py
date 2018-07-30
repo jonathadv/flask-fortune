@@ -1,5 +1,5 @@
 import random
-from data import FORTUNES
+from fortune.data import FORTUNES
 
 from flask import Flask, render_template
 
@@ -28,5 +28,3 @@ def about():
     return render_template('index.html', message=message, permalink='about')
 
 
-if __name__ == '__main__':
-    app.run()
