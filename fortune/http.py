@@ -1,7 +1,7 @@
 import random
 from fortune.data import FORTUNES
 from .response_factory import create_response
-from flask import Flask, render_template
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -14,20 +14,18 @@ def root(rtype):
     index = random.randint(0, MAX_RAND_INT)
     message = FORTUNES[index]
     permalink = str(index)
-
-    resp = create_response(rtype=rtype, message=message, permalink=permalink)
-    return resp
+    return create_response(rtype=rtype, message=message, permalink=permalink)
 
 
 @app.route('/<int:id_>/<rtype>')
 @app.route('/<int:id_>/', defaults={'rtype': 'html'})
 def users(id_, rtype):
     message = FORTUNES[id_]
-    resp = create_response(rtype=rtype, message=message, permalink=id_)
-    return resp
+    return create_response(rtype=rtype, message=message, permalink=id_)
 
 
-@app.route('/about')
-def about():
+@app.route('/about', defaults={'rtype': 'html'})
+@app.route('/about/<rtype>')
+def about(rtype):
     message = 'Hello! This is Fortune! \o/'
-    return render_template('index.html', message=message, permalink='about')
+    return create_response(rtype=rtype, message=message, permalink='about')
