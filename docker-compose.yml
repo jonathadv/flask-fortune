@@ -1,0 +1,7 @@
+flaskFortune:
+  image: flask-fortune
+  container_name: flask-fortune
+  hostname: flask-fortune
+  restart: unless-stopped
+  ports:
+    - "8080:8080"

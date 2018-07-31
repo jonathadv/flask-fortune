@@ -1,3 +1,7 @@
+# Build docker image allowing passing more args using ARGS variable.
+build:
+	docker build $(ARGS) -t flask-fortune .
+
 start:
 	uwsgi --ini uwsgi.ini
 
