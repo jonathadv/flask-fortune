@@ -17,9 +17,16 @@ $ pipenv  shell
 $ pipenv  install
 ```
 
+#### Watching mode
+
+```bash
+$ make watch
+
+```
+
 #### Starting the server
 ```bash
-$ ./start.sh 
+$ make start 
 [uWSGI] getting INI configuration from uwsgi.ini
 *** Starting uWSGI 2.0.17.1 (64bit) on [Wed Jul 25 23:59:57 2018] ***
 compiled with version: 4.9.2 on 26 July 2018 02:59:33
